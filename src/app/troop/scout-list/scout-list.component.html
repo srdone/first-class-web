@@ -1,0 +1,5 @@
+<fc-scout-card
+  *ngFor="let scout of scouts$ | async"
+  [scout]="scout"
+  [routerLink]="['/scouts', scout.id]">
+</fc-scout-card>

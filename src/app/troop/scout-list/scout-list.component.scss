@@ -1,0 +1,13 @@
+:host {
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+:host > fc-scout-card {
+  display: block;
+  margin-top: 10px;
+}
+
+:host > fc-scout-card:first-of-type {
+  margin-top: 0;
+}
