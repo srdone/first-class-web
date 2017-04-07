@@ -5,7 +5,12 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from "@angular/router";
-import { MaterialModule } from "@angular/material";
+import {
+  MdCardModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdButtonModule
+} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -13,7 +18,10 @@ import { MaterialModule } from "@angular/material";
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdButtonModule,
     FlexLayoutModule,
     RouterModule
   ],
@@ -22,7 +30,10 @@ import { MaterialModule } from "@angular/material";
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdButtonModule,
     FlexLayoutModule,
     RouterModule
   ],
