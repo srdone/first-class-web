@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from "@angular/router";
+import { MaterialModule } from "@angular/material";
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { RouterModule } from "@angular/router";
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
     FlexLayoutModule,
     RouterModule
   ],
@@ -20,6 +22,7 @@ import { RouterModule } from "@angular/router";
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
     FlexLayoutModule,
     RouterModule
   ],
