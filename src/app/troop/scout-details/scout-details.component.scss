@@ -1,5 +1,11 @@
 :host {
   padding: 10px;
+  overflow-y: scroll;
+}
+
+:host > md-card {
+  display: block;
+  margin-top: 10px;
 }
 
 .fab-bottom-left {

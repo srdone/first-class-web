@@ -1,4 +1,13 @@
-<fc-scout-card [scout]="scout$ | async"></fc-scout-card>
+<fc-scout-card [scout]="scout"></fc-scout-card>
+
+<md-card>
+    <button md-button (click)="deleteScout(scout)">
+      <md-icon>delete</md-icon>Delete
+    </button>
+    <button md-button (click)="editScout(scout)">
+      <md-icon>edit</md-icon>Edit
+    </button>
+</md-card>
 
 <button md-fab routerLink="/scouts" class="fab-bottom-left">
   <md-icon>navigate_before</md-icon>

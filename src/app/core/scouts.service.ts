@@ -35,4 +35,30 @@ export class ScoutsService {
       .filter(scout => scout.id === id);
   }
 
+  createScout(scout: Scout) {
+    this._scouts = [...this._scouts, scout];
+    this._scouts$.next(this._scouts);
+  }
+
+  updateScout(updatedScout: Scout) {
+    this._scouts = this._scouts.map(scout => {
+      if (updatedScout.id !== scout.id) {
+        return scout;
+      }
+      return updatedScout;
+    });
+    this._scouts$.next(this._scouts);
+  }
+
+  deleteScout(id: String) {
+    this._scouts = this._scouts.filter(scout => {
+      console.log(scout, id);
+      if (scout.id === id) {
+        return false;
+      }
+      return true;
+    });
+    this._scouts$.next(this._scouts);
+  }
+
 }

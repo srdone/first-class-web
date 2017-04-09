@@ -5,11 +5,13 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MdCardModule,
   MdToolbarModule,
   MdIconModule,
-  MdButtonModule
+  MdButtonModule,
+  MdDialogModule
 } from "@angular/material";
 
 @NgModule({
@@ -22,6 +24,8 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,
+    MdDialogModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule
   ],
@@ -34,6 +38,8 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,
+    MdDialogModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule
   ],
