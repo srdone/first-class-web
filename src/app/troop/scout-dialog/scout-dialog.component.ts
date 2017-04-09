@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MD_DIALOG_DATA } from "@angular/material";
+import { Scout } from "app/core";
+
+export interface ScoutDialogConfig { scout: Scout, isEdit: Boolean }
 
 @Component({
   selector: 'fc-scout-dialog',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScoutDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MD_DIALOG_DATA) public data: ScoutDialogConfig) { }
 
   ngOnInit() {
   }

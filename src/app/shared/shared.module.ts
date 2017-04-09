@@ -11,7 +11,8 @@ import {
   MdToolbarModule,
   MdIconModule,
   MdButtonModule,
-  MdDialogModule
+  MdDialogModule,
+  MdInputModule
 } from "@angular/material";
 
 @NgModule({
@@ -25,6 +26,7 @@ import {
     MdIconModule,
     MdButtonModule,
     MdDialogModule,
+    MdInputModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule
@@ -39,6 +41,7 @@ import {
     MdIconModule,
     MdButtonModule,
     MdDialogModule,
+    MdInputModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule

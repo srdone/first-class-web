@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 import "rxjs/add/operator/switchMap";
 import { Subscription } from "rxjs/Subscription";
-import { MdDialog } from "@angular/material";
+import { MdDialog, MdDialogConfig } from "@angular/material";
 import { ScoutDialogComponent } from "app/troop/scout-dialog/scout-dialog.component";
 
 @Component({
@@ -43,7 +43,13 @@ export class ScoutDetailsComponent implements OnInit, OnDestroy {
   }
 
   editScout(scout: Scout) {
-    this.dialog.open(ScoutDialogComponent);
+    let config: MdDialogConfig
+    this.dialog.open(ScoutDialogComponent, {
+      data: {
+        scout: Object.assign({}, scout),
+        isEdit: true
+      }
+    });
   }
 
 }
