@@ -36,6 +36,7 @@ export class ScoutsService {
   }
 
   createScout(scout: Scout) {
+    scout.id = '' + (Math.max(...this._scouts.map(scout => +scout.id)) + 1);
     this._scouts = [...this._scouts, scout];
     this._scouts$.next(this._scouts);
   }

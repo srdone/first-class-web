@@ -1,5 +1,11 @@
 <fc-scout-card
   *ngFor="let scout of scouts$ | async"
   [scout]="scout"
-  [routerLink]="['/scouts', scout.id]">
+  [routerLink]="['/scouts', scout.id]"
+  (click)="goToScout(scout.id)">
 </fc-scout-card>
+<div class="spacer"></div>
+
+<button md-fab (click)="createScout()" class="fab-bottom-right">
+  <md-icon>person_add</md-icon>
+</button>

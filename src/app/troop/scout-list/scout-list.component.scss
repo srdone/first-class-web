@@ -11,3 +11,15 @@
 :host > fc-scout-card:first-of-type {
   margin-top: 0;
 }
+
+.spacer {
+  display: block;
+  height: 75px;
+}
+
+.fab-bottom-right {
+  float: right;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}

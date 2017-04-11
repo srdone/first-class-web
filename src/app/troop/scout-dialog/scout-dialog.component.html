@@ -2,7 +2,7 @@
   {{ data.isEdit ? 'Edit Scout' : 'Create Scout' }}
 </h1>
 
-<md-dialog-content *ngIf="data.isEdit">
+<md-dialog-content>
   <md-input-container>
     <input mdInput type="text" placeholder="First Name" [(ngModel)]="data.scout.firstName"/>
   </md-input-container>
