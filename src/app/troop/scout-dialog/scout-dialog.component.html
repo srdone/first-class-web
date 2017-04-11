@@ -15,6 +15,6 @@
 </md-dialog-content>
 
 <md-dialog-actions>
-  <button md-button>Save</button>
-  <button md-button>Cancel</button>
+  <button md-button (click)="dialogRef.close(data.scout)">Save</button>
+  <button md-button (click)="dialogRef.close()">Cancel</button>
 </md-dialog-actions>

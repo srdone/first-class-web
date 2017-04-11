@@ -43,13 +43,20 @@ export class ScoutDetailsComponent implements OnInit, OnDestroy {
   }
 
   editScout(scout: Scout) {
-    let config: MdDialogConfig
-    this.dialog.open(ScoutDialogComponent, {
+    let dialogRef = this.dialog.open(ScoutDialogComponent, {
       data: {
         scout: Object.assign({}, scout),
         isEdit: true
       }
     });
+
+    dialogRef.afterClosed()
+      .subscribe(updatedScout => {
+        if (!updatedScout) {
+          return;
+        }
+        this.scoutsService.updateScout(updatedScout);
+      });
   }
 
 }
