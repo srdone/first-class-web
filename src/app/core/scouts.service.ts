@@ -45,7 +45,6 @@ export class ScoutsService {
 
   deleteScout(id: String) {
     this._scouts = this._scouts.filter(scout => {
-      console.log(scout, id);
       if (scout.id === id) {
         return false;
       }

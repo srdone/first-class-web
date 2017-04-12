@@ -5,6 +5,7 @@ import { SharedModule } from "app/shared";
 import { ScoutCardComponent } from "app/troop";
 import { Injectable } from "@angular/core";
 import { ScoutsService } from "app/core";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe('ScoutListComponent', () => {
   let component: ScoutListComponent;
@@ -18,7 +19,10 @@ describe('ScoutListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ SharedModule ],
+      imports: [
+        SharedModule,
+        RouterTestingModule
+      ],
       declarations: [
         ScoutListComponent,
         ScoutCardComponent
