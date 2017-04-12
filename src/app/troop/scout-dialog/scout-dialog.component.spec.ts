@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoutDialogComponent, ScoutDialogConfig } from './scout-dialog.component';
 import { SharedModule } from "app/shared";
-import { MD_DIALOG_DATA, MdDialogRef, MdButton } from "@angular/material";
+import { MD_DIALOG_DATA, MdDialogRef, MdButton, MdInputDirective } from "@angular/material";
 import { By } from "@angular/platform-browser";
 
 describe('ScoutDialogComponent', () => {
@@ -52,6 +52,14 @@ describe('ScoutDialogComponent', () => {
     saveButton.triggerEventHandler('click', {});
 
     expect(mockDialogRef.close).toHaveBeenCalledWith(data.scout);
+  });
+
+  it('should update the value of the first name when a value is entered', () => {
+    let firstNameInput = fixture.debugElement.queryAll(By.directive(MdInputDirective))[0];
+    firstNameInput.triggerEventHandler('input', {target: {value: 'Fred'}});
+    fixture.detectChanges();
+
+    expect(data.scout.firstName).toEqual('Fred');
   });
 
 });
