@@ -9,15 +9,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 @Injectable()
 export class ScoutsService {
 
-  _scouts: Scout[] = [
-      {id: '1', firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "2", firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "3", firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "4", firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "5", firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "6", firstName: 'Stephen', lastName: 'Done', rank: 'Eagle'},
-      {id: "7", firstName: 'Fred', lastName: 'Flintstone', rank: 'First Class'}
-  ];
+  _scouts: Scout[] = [];
 
   _scouts$ = new BehaviorSubject<Scout[]>(this._scouts);
 
