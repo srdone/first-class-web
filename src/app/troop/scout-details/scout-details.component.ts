@@ -1,12 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ScoutsService, Scout } from "app/core";
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Store } from "@ngrx/store";
 
+import "@ngrx/core/add/operator/select";
 import "rxjs/add/operator/switchMap";
 import { Subscription } from "rxjs/Subscription";
 import { MdDialog, MdDialogConfig } from "@angular/material";
 import { ScoutDialogComponent } from "app/troop/scout-dialog/scout-dialog.component";
+import { Scout } from "app/core/models";
+import * as fromRoot from "app/core/reducers";
+import * as scout from "app/core/actions";
 
 @Component({
   selector: 'fc-scout-details',
@@ -17,35 +21,42 @@ export class ScoutDetailsComponent implements OnInit, OnDestroy {
 
   scout: Scout;
 
-  _scoutSubscription: Subscription;
+  actionsSubscription: Subscription;
+  selectedScoutSubscription: Subscription;
 
   constructor(
-    private scoutsService: ScoutsService,
+    private store: Store<fromRoot.State>,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private dialog: MdDialog
   ) { }
 
   ngOnInit() {
-    this._scoutSubscription = this.activatedRoute
+    this.actionsSubscription = this.activatedRoute
       .params
-      .switchMap(params => this.scoutsService.getScout$(params.id))
-      .subscribe(scout => this.scout = scout);
+      .select<string>('id')
+      .map(id => new scout.SelectAction(id))
+      .subscribe(this.store);
+
+    this.selectedScoutSubscription = 
+      this.store.select(fromRoot.getSelectedScout)
+        .subscribe(scout => this.scout = scout);
   }
 
   ngOnDestroy() {
-    this._scoutSubscription.unsubscribe();
+    this.actionsSubscription.unsubscribe();
+    this.selectedScoutSubscription.unsubscribe();
   }
 
-  deleteScout(scout: Scout) {
-    this.scoutsService.deleteScout(scout.id);
+  deleteScout(s: Scout) {
+    this.store.dispatch(new scout.DeleteAction(s.id));
     this.router.navigate(['/scouts']);
   }
 
-  editScout(scout: Scout) {
+  editScout(s: Scout) {
     let dialogRef = this.dialog.open(ScoutDialogComponent, {
       data: {
-        scout: Object.assign({}, scout),
+        scout: Object.assign({}, s),
         isEdit: true
       }
     });
@@ -55,7 +66,7 @@ export class ScoutDetailsComponent implements OnInit, OnDestroy {
         if (!updatedScout) {
           return;
         }
-        this.scoutsService.updateScout(updatedScout);
+        this.store.dispatch(new scout.UpdateAction(updatedScout));
       });
   }
 

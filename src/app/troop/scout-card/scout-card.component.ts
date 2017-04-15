@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Scout } from "app/core";
+import { Scout } from "app/core/models";
 
 @Component({
   selector: 'fc-scout-card',

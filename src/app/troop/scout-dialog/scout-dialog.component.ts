@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MD_DIALOG_DATA, MdDialogRef } from "@angular/material";
-import { Scout } from "app/core";
+import { Scout } from "app/core/models/scout.interface";
 
 export interface ScoutDialogConfig { scout: Scout, isEdit: Boolean }
 

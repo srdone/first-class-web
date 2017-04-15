@@ -1,15 +1,19 @@
 import { NgModule, SkipSelf, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScoutsService } from "app/core/scouts.service";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { reducer } from './reducers';
+import { RouterStoreModule } from "@ngrx/router-store";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    StoreModule.provideStore(reducer),
+    RouterStoreModule.connectRouter(),
+    StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   declarations: [],
-  providers: [
-    ScoutsService
-  ]
 })
 export class CoreModule {
 

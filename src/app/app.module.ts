@@ -16,8 +16,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     SharedModule,
+    AppRoutingModule,    
     CoreModule,
-    AppRoutingModule,
     TroopModule
   ],
   providers: [],

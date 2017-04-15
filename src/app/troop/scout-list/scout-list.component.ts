@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
-import { Scout, ScoutsService } from "app/core";
+import { Store } from '@ngrx/store';
 import { Router } from "@angular/router";
 import { MdDialog } from "@angular/material";
 import { ScoutDialogComponent } from "app/troop/scout-dialog/scout-dialog.component";
+import { Scout } from "app/core/models";
+import * as fromRoot from 'app/core/reducers';
+import * as scout from 'app/core/actions/scout';
 
 @Component({
   selector: 'fc-scout-list',
@@ -15,13 +18,13 @@ export class ScoutListComponent implements OnInit {
   scouts$: Observable<Scout[]>;
 
   constructor(
-    private scoutsService: ScoutsService,
+    private store: Store<fromRoot.State>,
     private router: Router,
     private dialog: MdDialog
   ) { }
 
   ngOnInit() {
-    this.scouts$ = this.scoutsService.getScouts$();
+    this.scouts$ = this.store.select(fromRoot.getAllScouts);
   }
 
   goToScout(id: string) {
@@ -41,7 +44,7 @@ export class ScoutListComponent implements OnInit {
         if (!newScout) {
           return;
         }
-        this.scoutsService.createScout(newScout);
+        this.store.dispatch(new scout.AddAction(newScout));
       });
   }
 

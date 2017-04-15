@@ -4,7 +4,6 @@ import { ScoutListComponent } from './scout-list.component';
 import { SharedModule } from "app/shared";
 import { ScoutCardComponent } from "app/troop";
 import { Injectable } from "@angular/core";
-import { ScoutsService } from "app/core";
 import { RouterTestingModule } from "@angular/router/testing";
 
 describe('ScoutListComponent', () => {
@@ -28,7 +27,6 @@ describe('ScoutListComponent', () => {
         ScoutCardComponent
       ],
       providers: [
-        {provide: ScoutsService, useFactory: () => ScoutServiceMock }
       ]
     })
     .compileComponents();

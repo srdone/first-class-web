@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScoutDetailsComponent } from './scout-details.component';
 import { ScoutCardComponent } from "app/troop";
 import { SharedModule } from "app/shared";
-import { ScoutsService, Scout } from "app/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { of as observableOf } from "rxjs/observable/of";
@@ -33,7 +32,6 @@ describe('ScoutDetailsComponent', () => {
         ScoutCardComponent
       ],
       providers: [
-        {provide: ScoutsService, useFactory: () => ScoutsServiceMock },
         {provide: ActivatedRoute, useFactory: () => ActivatedRouteMock }
       ]
     })
