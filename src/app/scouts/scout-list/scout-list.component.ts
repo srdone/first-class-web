@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Store } from '@ngrx/store';
 import { Router } from "@angular/router";
 import { MdDialog } from "@angular/material";
-import { ScoutDialogComponent } from "app/troop/scout-dialog/scout-dialog.component";
+import { ScoutDialogComponent } from "app/scouts/scout-dialog/scout-dialog.component";
 import { Scout } from "app/core/models";
 import * as fromRoot from 'app/core/reducers';
 import * as scout from 'app/core/actions/scout';

@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoutDetailsComponent } from './scout-details.component';
-import { ScoutCardComponent } from "app/troop";
 import { SharedModule } from "app/shared";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { of as observableOf } from "rxjs/observable/of";
 import { RouterTestingModule } from "@angular/router/testing";
+import { ScoutCardComponent } from "app/scouts/scout-card/scout-card.component";
 
 describe('ScoutDetailsComponent', () => {
   let component: ScoutDetailsComponent;

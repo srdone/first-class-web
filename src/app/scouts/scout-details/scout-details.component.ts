@@ -7,7 +7,7 @@ import "@ngrx/core/add/operator/select";
 import "rxjs/add/operator/switchMap";
 import { Subscription } from "rxjs/Subscription";
 import { MdDialog, MdDialogConfig } from "@angular/material";
-import { ScoutDialogComponent } from "app/troop/scout-dialog/scout-dialog.component";
+import { ScoutDialogComponent } from "app/scouts/scout-dialog/scout-dialog.component";
 import { Scout } from "app/core/models";
 import * as fromRoot from "app/core/reducers";
 import * as scout from "app/core/actions";

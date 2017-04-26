@@ -1,1 +1,0 @@
-export * from './scout-details.component';
